@@ -1,0 +1,27 @@
+.page-about {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	#map {
+		height: 100%;
+		position: relative;
+		z-index: 1;
+		flex: 1 0 auto;
+	}
+
+	&__text {
+		border-radius: 2px;
+		position: absolute;
+		background: white;
+		top: 2rem;
+		right: 2rem;
+		z-index: 2;
+		padding: 0.5rem 1rem 0.5rem 1rem;
+		box-shadow: 0 0 15px 0 rgba(0,0,0,0.75);
+
+		P:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
