@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Рокс</title>
-    <% if (env == 'production') { %>
-    <link href="/css/main.css?<%= hash %>" rel="stylesheet">
-    <% } %>
-    <style>
-        LI { font-size: 1.6rem !important; padding: 15px !important; }
-    </style>
-</head>
+<%- include('partials/head') %>
 <body>
-<ul>
-    <li><a href="./01_index.html">1. Main page</a></li>
-</ul>
+<ol>
+    <li><a href="./01_index.html">Main page</a></li>
+    <li><a href="./02_about.html">About page</a></li>
+    <li><a href="./03_projects.html">Projects page</a></li>
+    <li><a href="./04_gallery.html">Gallery page</a></li>
+</ol>
 <%- include('partials/scripts') %>
 </body>
 </html>

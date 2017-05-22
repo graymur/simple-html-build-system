@@ -1,5 +1,5 @@
 {
-  "name": "Simple HTML build system",
+  "name": "simple-html-build-system",
   "version": "1.0.0",
   "description": "HTML build system",
   "main": "./src/index.js",

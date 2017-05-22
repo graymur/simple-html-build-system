@@ -14,7 +14,7 @@ $('.page-about').each(function () {
 			center: {lat: lat, lng: lon}
 		};
 
-		const map = new maps.Map(mapContainer.get(0), options); // eslin-disable-line
+		const map = new maps.Map(mapContainer.get(0), options);
 
 		map.setMapTypeId(maps.MapTypeId.SATELLITE);
 	}).catch(err => {

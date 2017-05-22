@@ -2,4 +2,7 @@
     <title>Build system example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<% if (env == 'production') { %>
+    <link href="/css/main.css?<%= Date.now() %>" rel="stylesheet">
+<% } %>
 </head>
