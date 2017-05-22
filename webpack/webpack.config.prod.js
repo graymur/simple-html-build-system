@@ -18,15 +18,18 @@ const productionConfig = merge(
 				from: path.join(config.dllDir, `vendors.${process.env.NODE_ENV}.js`),
 				to: path.join(config.buildDir, '/js/vendors.js')
 			}]),
-			new CopyWebpackPlugin([{
-				from: path.join(config.sourceDir, 'files'),
-				to: path.join(config.buildDir, 'files')
-			}]),
 			new ExtractTextPlugin('css/main.css'),
 			uglifyPlugin
 		]
 	}
 );
+
+config.staticDirs.forEach(dir => {
+	productionConfig.plugins.push(new CopyWebpackPlugin([{
+		from: path.join(config.sourceDir, dir),
+		to: path.join(config.buildDir, dir)
+	}]));
+});
 
 productionConfig.module.loaders.filter(loader =>
 	loader.loaders && loader.loaders.find(name => /css/.test(name.split('?')[0]))
