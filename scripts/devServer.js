@@ -40,7 +40,7 @@ watch(config.templatesDir, { recursive: true }, (evt, name) => {
 
 app.use(hotMiddleware);
 
-app.get('*', (req, res) => {
+app.get(/^(\/|.*\.html)$/, (req, res) => {
 	let template = req.path;
 
 	if (template === '/') {

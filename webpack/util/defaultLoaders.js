@@ -21,7 +21,7 @@ export default [{
 }, {
 	test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
 	use: [{
-		loader: 'svg-url-loader?limit=4096&name=img/svg/[name].[ext]'
+		loader: 'svg-url-loader?limit=4096&name=img/[name].[ext]'
 	} /*, {
 		loader: 'svgo-loader',
 		options: {
@@ -34,9 +34,5 @@ export default [{
 	} */ ]
 }, {
 	test: /\.(png|jpg)$/,
-	// loaders: ['url-loader?limit=8192&name=img/[name].[ext]', 'img-loader?optimizationLevel=7&progressive=true']
 	loaders: ['file-loader?name=img/[name].[ext]', 'img-loader']
-}/*, {
-	test: /\.ejs$/,
-	loader: 'ejs-loader?variable=data'
-}*/];
+}];

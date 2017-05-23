@@ -1,0 +1,50 @@
+@import "~style/lib";
+$padding: 0.5rem;
+
+.page-projects {
+	padding-bottom: 5rem;
+
+	.projects {
+		margin: 0 -$padding 0 -$padding;
+		&__item {
+			width: 50%;
+			padding: $padding;
+
+			&:hover {
+				.projects__item__wr {
+					box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+				}
+			}
+
+			&._2w {
+				width: 100%;
+			}
+
+			&._2h {
+				.projects__item__wr {
+					padding-top: calc(80% + 1rem);
+				}
+			}
+
+			&__wr {
+				transition: all $transitionSpeedFast;
+				box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0);
+				padding-top: 40%;
+				position: relative;
+				background-color: #f9f9f9;
+				background-repeat: no-repeat;
+				background-position: center center;
+				@extend %svg-ornament;
+			}
+
+			&__content {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				padding: 2rem;
+			}
+		}
+	}
+}
