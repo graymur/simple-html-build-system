@@ -45,6 +45,22 @@ $padding: 0.5rem;
 				height: 100%;
 				padding: 2rem;
 			}
+
+			&:nth-child(2), &:nth-child(4) {
+				.projects__item__wr {
+					@extend %svg-corner-floral-ornament;
+					background-size: cover;
+					background-position: top right;
+				}
+			}
+
+			&:nth-child(3), &:nth-child(6) {
+				.projects__item__wr {
+					@extend %svg-Ornament-15-SVG;
+					background-size: contain;
+					background-position: bottom center;
+				}
+			}
 		}
 	}
 }
