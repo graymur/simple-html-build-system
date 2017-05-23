@@ -2,6 +2,7 @@ import ejs from 'ejs';
 import config from '../config/config';
 import path from 'path';
 import fs from 'fs';
+import html from 'html';
 const hash = Date.now();
 
 fs.readdir(config.templatesDir, (err, files) => {
@@ -15,14 +16,16 @@ fs.readdir(config.templatesDir, (err, files) => {
 			const templatePath = path.join(config.templatesDir, file);
 			const targetPath = path.join(config.buildDir, file.replace('.ejs', '.html'));
 
-			const html = ejs.render(fs.readFileSync(templatePath, 'utf-8'), {
+			let generatedHTML = ejs.render(fs.readFileSync(templatePath, 'utf-8'), {
 				env: process.env.NODE_ENV,
 				hash,
 				filename: templatePath,
 				currentPage: file.replace('.ejs', '.html')
 			});
 
-			fs.writeFileSync(targetPath, html);
+			generatedHTML = html.prettyPrint(generatedHTML, {unformatted: []});
+
+			fs.writeFileSync(targetPath, generatedHTML);
 			console.log(`Rendered ${targetPath}`);
 		});
 });
