@@ -11,6 +11,7 @@ export default {
 	prodPort: 8080,
 	host: '0.0.0.0',
 	staticDirs: ['img', 'fonts'],
+	copyDirs: ['img', 'fonts'],
 	aliases: {
 		'masonry': 'masonry-layout',
 		'isotope': 'isotope-layout'

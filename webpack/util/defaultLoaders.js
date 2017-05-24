@@ -22,16 +22,7 @@ export default [{
 	test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
 	use: [{
 		loader: 'svg-url-loader?limit=4096&name=img/[name].[ext]'
-	} /*, {
-		loader: 'svgo-loader',
-		options: {
-			plugins: [
-				{ removeTitle: true },
-				{ convertColors: {shorthex: false} },
-				{ convertPathData: false }
-			]
-		}
-	} */ ]
+	}]
 }, {
 	test: /\.(png|jpg)$/,
 	loaders: ['file-loader?name=img/[name].[ext]', 'img-loader']

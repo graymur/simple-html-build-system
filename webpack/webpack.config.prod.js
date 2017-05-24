@@ -24,7 +24,7 @@ const productionConfig = merge(
 	}
 );
 
-config.staticDirs.forEach(dir => {
+(config.copyDirs || []).forEach(dir => {
 	productionConfig.plugins.push(new CopyWebpackPlugin([{
 		from: path.join(config.sourceDir, dir),
 		to: path.join(config.buildDir, dir)
@@ -43,5 +43,5 @@ productionConfig.module.loaders.filter(loader =>
 	delete loader.loaders;
 });
 
-// export default productionConfig;
-export default addBundleAnalyzerPlugin(productionConfig);
+export default productionConfig;
+// export default addBundleAnalyzerPlugin(productionConfig);
