@@ -10,15 +10,24 @@ import webpackConfig from '../webpack/webpack.config.dev';
 
 const app = express();
 
+/**
+ * Set view engine and views directory
+ */
 app.set('view engine', config.templateEngine);
 app.set('views', config.templatesDir);
 
+/**
+ * Serve content from directories that are in `config.staticDirs` array
+ */
 if (config.staticDirs) {
 	config.staticDirs.forEach(dir => {
 		app.use(`/${dir}`, express.static(path.join(config.sourceDir, dir)));
 	});
 }
 
+/**
+ * This is needed to serve Webpack DLL files
+ */
 app.use('/node_modules', express.static(path.join(__dirname, '/../node_modules')));
 
 const compiler = webpack(webpackConfig);
@@ -34,12 +43,19 @@ app.use(webpackDevMiddleware(compiler, {
 
 const hotMiddleware = webpackHotMiddleware(compiler);
 
+/**
+ * Watch all files is template directory and reload browser
+ * on file change
+ */
 watch(config.templatesDir, { recursive: true }, (evt, name) => {
 	hotMiddleware.publish({action: 'reload'});
 });
 
 app.use(hotMiddleware);
 
+/**
+ * Render templates on *.html requests
+ */
 app.get(/^(\/|.*\.html)$/, (req, res) => {
 	let template = req.path;
 

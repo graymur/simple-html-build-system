@@ -1,3 +1,6 @@
+/**
+ * Require styles for this page
+ */
 import './about.scss';
 import $ from 'jquery';
 const mapsapi = require('google-maps-api')('AIzaSyDU78Ayt-Iqh5EBq6PQpKUp70ORnF8Aur4');

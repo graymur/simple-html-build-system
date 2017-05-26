@@ -1,3 +1,11 @@
+/**
+Since this file is required in JavaScript, it doesn't have access
+to all mixins and variables as it would have it was required in
+style/main.scss. We have to import them here same as we import
+all required files in JavaScript
+*/
+@import "~style/lib";
+
 .page-about {
 	position: relative;
 	display: flex;
@@ -11,7 +19,7 @@
 	}
 
 	&__text {
-		border-radius: 2px;
+		border-radius: $borderRadius;
 		position: absolute;
 		background: white;
 		top: 2rem;

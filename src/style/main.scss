@@ -1,4 +1,11 @@
+/**
+This isn't an entry point to style files, it just contains some common styling and
+includes fonts. Keep styling of different pages and blocks in separate files and
+require them in appropriate JavaScript files to speed up development builds.
+See ../components/about/index.js and ../components/about/about.scss for example.
+*/
 @import "fonts";
+@import "~style/lib";
 
 *, *:after, *:before {
 	box-sizing: border-box;

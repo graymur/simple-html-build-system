@@ -43,5 +43,5 @@ productionConfig.module.loaders.filter(loader =>
 	delete loader.loaders;
 });
 
-export default productionConfig;
-// export default addBundleAnalyzerPlugin(productionConfig);
+// export default productionConfig;
+export default addBundleAnalyzerPlugin(productionConfig);
