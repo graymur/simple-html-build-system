@@ -1,0 +1,42 @@
+.css-grid {
+	section {
+	}
+
+	#grid,
+	#grid2,
+	#grid3 {
+		display: grid;
+	}
+
+	#grid {
+		grid-template-columns: 150px 1fr 150px;
+		grid-template-rows: 50px auto 50px;
+	}
+
+	#grid2 {
+		grid-template-columns:  150px 2fr auto;
+		grid-template-rows: 50px auto 50px;
+	}
+
+	#grid3 {
+		grid-template: 50px auto 50px / 150px 1fr auto;
+	}
+
+	.grid-item {
+		padding: .2em;
+		background: #009688;
+		border-radius: 5px;
+		border: 1px solid #fff;
+	}
+
+	.example-code {
+		display: inline-block;
+		background-color: #e0e0e0;
+		margin-bottom: 1em;
+	}
+
+	pre {
+		margin: 0;
+		padding: 0  1em 0.5em 0;
+	}
+}
