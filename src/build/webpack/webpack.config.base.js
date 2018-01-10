@@ -43,7 +43,7 @@ const baseConfig = {
 		alias: {
 			style: path.join(config.sourceDir, 'style'),
 			img: path.join(config.sourceDir, 'img'),
-			fonts: path.join(config.sourceDir, 'fonts'),
+			fonts: path.join(config.sourceDir, 'fonts')
 		}
 	}
 };

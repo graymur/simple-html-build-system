@@ -7,12 +7,12 @@
     "lint": "eslint server/**/*.js src/**/*.js webpack/**/*.js --ignore-pattern *.test.js",
     "test": "better-npm-run test",
     "test:watch": "npm run test -- --watch",
-    "start": "babel-node ./scripts/prodServer.js",
+    "start": "babel-node ./src/build/scripts/prodServer.js",
     "dev": "better-npm-run dev",
     "devmon": "nodemon --exec better-npm-run dev",
     "build": "npm run lint && npm run build-templates && better-npm-run build-assets && npm run optimize-images",
     "build-templates": "better-npm-run build-templates",
-    "optimize-images": "babel-node ./scripts/optimizeImages.js",
+    "optimize-images": "babel-node ./src/build/scripts/optimizeImages.js",
     "dll:dev": "better-npm-run dll:dev",
     "dll:prod": "better-npm-run dll:prod",
     "dll": "npm run dll:dev && npm run dll:prod",
@@ -21,19 +21,19 @@
   },
   "betterScripts": {
     "dev": {
-      "command": "babel-node ./scripts/devServer.js",
+      "command": "babel-node ./src/build/scripts/devServer.js",
       "env": {
         "NODE_ENV": "development"
       }
     },
     "build-templates": {
-      "command": "babel-node ./scripts/buildTemplates.js",
+      "command": "babel-node ./src/build/scripts/buildTemplates.js",
       "env": {
         "NODE_ENV": "production"
       }
     },
     "build-assets": {
-      "command": "npm run webpack -- --optimize-minimize --color --progress --config=webpack/webpack.config.prod.js",
+      "command": "npm run webpack -- --optimize-minimize --color --progress --config=src/build/webpack/webpack.config.prod.js",
       "env": {
         "NODE_ENV": "production"
       }
@@ -45,13 +45,13 @@
       }
     },
     "dll:prod": {
-      "command": "npm run webpack -- --color --progress --config=webpack/webpack.config.dll.js",
+      "command": "npm run webpack -- --optimize-minimize --color --progress --config=src/build/webpack/webpack.config.dll.js",
       "env": {
         "NODE_ENV": "production"
       }
     },
     "dll:dev": {
-      "command": "npm run webpack -- --color --progress --config=webpack/webpack.config.dll.js",
+      "command": "npm run webpack -- --color --progress --config=src/build/webpack/webpack.config.dll.js",
       "env": {
         "NODE_ENV": "development"
       }

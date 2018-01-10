@@ -8,15 +8,15 @@ const hash = Date.now();
 /**
  * Create build dir if it doesn't exist
  */
-if (!fs.existsSync(config.buildDir)) {
-	fs.mkdirSync(config.buildDir);
+if (!fs.existsSync(config.buildDirHTML)) {
+	fs.mkdirSync(config.buildDirHTML);
 }
 
 fs.readdirSync(config.templatesDir)
 	.filter(file => file.indexOf('.ejs') > -1)
 	.forEach(file => {
 		const templatePath = path.join(config.templatesDir, file);
-		const targetPath = path.join(config.buildDir, file.replace('.ejs', '.html'));
+		const targetPath = path.join(config.buildDirHTML, file.replace('.ejs', '.html'));
 
 		let generatedHTML = ejs.render(fs.readFileSync(templatePath, 'utf-8'), {
 			/**

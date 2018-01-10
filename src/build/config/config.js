@@ -1,10 +1,17 @@
 import path from 'path';
 
+const configDir = path.dirname(__filename);
+
+const baseDir = path.resolve(path.join(configDir, '/../../../'));
+const sourceDir = path.join(baseDir, 'src');
+const buildDir = path.join(baseDir, '_html');
+
 export default {
+	baseDir,
 	/**
 	 * Source dir where JavaScript, styles and templates are stored
 	 */
-	sourceDir: path.resolve(path.join(__dirname, '/../src')),
+	sourceDir: sourceDir,
 	/**
 	 * Templating engine of choise (only Ejs at this moment)
 	 */
@@ -12,15 +19,17 @@ export default {
 	/**
 	 * Path where templates are stored
 	 */
-	templatesDir: path.resolve(path.join(__dirname, '/../src/templates')),
+	templatesDir: path.join(sourceDir, 'templates'),
 	/**
 	 * Path where generated files are stored
 	 */
-	buildDir: path.resolve(path.join(__dirname, '/../_html')),
+	buildDir,
+	// buildDirHTML: path.join(buildDir, '_html'),
+	buildDirHTML: buildDir,
 	/**
 	 * Path where webpack DLLs are stored
 	 */
-	dllDir: path.join(path.resolve(path.join(__dirname, '/../node_modules')), '_dll'),
+	dllDir: path.join(baseDir, 'node_modules', '_dll'),
 	/**
 	 * JavaScript DLL file name
 	 */

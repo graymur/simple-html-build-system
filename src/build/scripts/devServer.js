@@ -28,7 +28,7 @@ if (config.staticDirs) {
 /**
  * This is needed to serve Webpack DLL files
  */
-app.use('/node_modules', express.static(path.join(__dirname, '/../node_modules')));
+app.use('/node_modules', express.static(path.join(config.baseDir, 'node_modules')));
 
 const compiler = webpack(webpackConfig);
 
