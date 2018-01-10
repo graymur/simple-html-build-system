@@ -1,4 +1,19 @@
 {
-  "presets": ["es2015", "stage-0"],
-  "plugins": []
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "safari >= 9"
+          ]
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ]
 }

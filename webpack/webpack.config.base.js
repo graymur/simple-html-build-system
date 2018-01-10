@@ -1,8 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
 import config from '../config/config';
-import cssMqpacker from 'css-mqpacker';
-import autoprefixer from 'autoprefixer';
 
 import defaultLoaders from './util/defaultLoaders';
 
@@ -27,17 +25,6 @@ const baseConfig = {
 				NODE_ENV: JSON.stringify(process.env.NODE_ENV)
 			}
 		}),
-		new webpack.LoaderOptionsPlugin({
-			options: {
-				postcss: [
-					autoprefixer({
-						browsers: ['last 2 versions'],
-						remove: false
-					}),
-					cssMqpacker()
-				]
-			}
-		}),
 		new webpack.ProvidePlugin({
 			_: 'lodash'
 		}),
@@ -54,7 +41,9 @@ const baseConfig = {
 		modules: ['src', 'node_modules'],
 		extensions: ['.js'],
 		alias: {
-			style: path.join(config.sourceDir, 'style')
+			style: path.join(config.sourceDir, 'style'),
+			img: path.join(config.sourceDir, 'img'),
+			fonts: path.join(config.sourceDir, 'fonts'),
 		}
 	}
 };
